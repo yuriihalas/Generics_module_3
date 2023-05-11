@@ -1,9 +1,9 @@
-namespace GenericsModule;
+namespace GenericsModule.Core;
 
 public static class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("hello");
+        ProgramManager.RunProgram();
     }
 }
