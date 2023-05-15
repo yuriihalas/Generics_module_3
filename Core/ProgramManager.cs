@@ -6,23 +6,23 @@ public static class ProgramManager
     {
         Matrix<Integer> intMatrix = new Matrix<Integer>(new Integer[,]
         {
-            { new Integer(1), new Integer(2) },
-            { new Integer(3), new Integer(4) },
-            { new Integer(5), new Integer(6) },
+            { new(1), new(2) },
+            { new(3), new(4) },
+            { new(5), new(6) },
         });
 
-        Matrix<Double> doubleMatrix = new Matrix<Double>(new Double[,]
+        Matrix<Double> doubleMatrix = new(new Double[,]
         {
-            { new Double(1.1), new Double(2.2) },
-            { new Double(3.3), new Double(4.4) },
-            { new Double(5.5), new Double(6.6) },
+            { new(1.1), new(2.2) },
+            { new(3.3), new(4.4) },
+            { new(5.5), new(6.6) },
         });
 
-        Matrix<Decimal> decimalMatrix = new Matrix<Decimal>(new Decimal[,]
+        Matrix<Decimal> decimalMatrix = new(new Decimal[,]
         {
-            { new Decimal(1.1M), new Decimal(2.2M) },
-            { new Decimal(3.3M), new Decimal(4.4M) },
-            { new Decimal(5.5M), new Decimal(6.6M) },
+            { new(1.1M), new(2.2M) },
+            { new(3.3M), new(4.4M) },
+            { new(5.5M), new(6.6M) },
         });
 
         Console.WriteLine(new string('_', Console.BufferWidth));
