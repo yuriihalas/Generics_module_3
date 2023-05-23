@@ -20,7 +20,7 @@ public class Matrix<T> where T : INumber<T>
             }
         }
 
-        return new Matrix<T>(finalResult);
+        return new(finalResult);
     }
 
     public Matrix<T> Subtract(Matrix<T> matrix)
@@ -35,7 +35,7 @@ public class Matrix<T> where T : INumber<T>
             }
         }
 
-        return new Matrix<T>(finalResult);
+        return new(finalResult);
     }
 
     public Matrix<T> Multiply(T constant)
@@ -49,7 +49,7 @@ public class Matrix<T> where T : INumber<T>
             }
         }
 
-        return new Matrix<T>(finalResult);
+        return new(finalResult);
     }
 
     private void CheckSize(Matrix<T> matrix)
@@ -63,7 +63,7 @@ public class Matrix<T> where T : INumber<T>
 
     public override string ToString()
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         for (int i = 0; i < _data.GetLength(0); i++)
         {
             for (int j = 0; j < _data.GetLength(1); j++)

@@ -4,7 +4,7 @@ public static class ProgramManager
 {
     public static void RunProgram()
     {
-        Matrix<Integer> intMatrix = new Matrix<Integer>(new Integer[,]
+        Matrix<Integer> intMatrix = new(new Integer[,]
         {
             { new(1), new(2) },
             { new(3), new(4) },
@@ -53,14 +53,14 @@ public static class ProgramManager
 
         Console.WriteLine(new string('_', Console.BufferWidth));
         Console.WriteLine("Multiplication of Integer matrix: ");
-        Console.WriteLine(intMatrix.Multiply(new Integer(10)).ToString());
+        Console.WriteLine(intMatrix.Multiply(new(10)).ToString());
 
         Console.WriteLine(new string('_', Console.BufferWidth));
         Console.WriteLine("Multiplication of Double matrix: ");
-        Console.WriteLine(doubleMatrix.Multiply(new Double(10.1)).ToString());
+        Console.WriteLine(doubleMatrix.Multiply(new(10.1)).ToString());
 
         Console.WriteLine(new string('_', Console.BufferWidth));
         Console.WriteLine("Multiplication of Decimal matrix: ");
-        Console.WriteLine(decimalMatrix.Multiply(new Decimal(10.1M)).ToString());
+        Console.WriteLine(decimalMatrix.Multiply(new(10.1M)).ToString());
     }
 }
