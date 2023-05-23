@@ -6,10 +6,7 @@ public class Matrix<T> where T : INumber<T>
 {
     private T[,] _data;
 
-    public Matrix(T[,] data)
-    {
-        _data = data;
-    }
+    public Matrix(T[,] data) => _data = data;
 
     public Matrix<T> Add(Matrix<T> matrix)
     {
