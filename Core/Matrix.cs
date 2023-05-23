@@ -11,10 +11,10 @@ public class Matrix<T> where T : INumber<T>
     public Matrix<T> Add(Matrix<T> matrix)
     {
         CheckSize(matrix);
-        T[,] finalResult = new T[_data.GetLength(0), _data.GetLength(1)];
-        for (int i = 0; i < _data.GetLength(0); i++)
+        T[,] finalResult = new T[GetFirstLength(), GetSecondLength()];
+        for (int i = 0; i < GetFirstLength(); i++)
         {
-            for (int j = 0; j < _data.GetLength(1); j++)
+            for (int j = 0; j < GetSecondLength(); j++)
             {
                 finalResult[i, j] = _data[i, j].Add(matrix._data[i, j]);
             }
@@ -26,10 +26,10 @@ public class Matrix<T> where T : INumber<T>
     public Matrix<T> Subtract(Matrix<T> matrix)
     {
         CheckSize(matrix);
-        T[,] finalResult = new T[_data.GetLength(0), _data.GetLength(1)];
-        for (int i = 0; i < _data.GetLength(0); i++)
+        T[,] finalResult = new T[GetFirstLength(), GetSecondLength()];
+        for (int i = 0; i < GetFirstLength(); i++)
         {
-            for (int j = 0; j < _data.GetLength(1); j++)
+            for (int j = 0; j < GetSecondLength(); j++)
             {
                 finalResult[i, j] = _data[i, j].Subtract(matrix._data[i, j]);
             }
@@ -40,10 +40,10 @@ public class Matrix<T> where T : INumber<T>
 
     public Matrix<T> Multiply(T constant)
     {
-        T[,] finalResult = new T[_data.GetLength(0), _data.GetLength(1)];
-        for (int i = 0; i < _data.GetLength(0); i++)
+        T[,] finalResult = new T[GetFirstLength(), GetSecondLength()];
+        for (int i = 0; i < GetFirstLength(); i++)
         {
-            for (int j = 0; j < _data.GetLength(1); j++)
+            for (int j = 0; j < GetSecondLength(); j++)
             {
                 finalResult[i, j] = constant.Multiply(_data[i, j]);
             }
@@ -54,19 +54,23 @@ public class Matrix<T> where T : INumber<T>
 
     private void CheckSize(Matrix<T> matrix)
     {
-        if (_data.GetLength(0) != matrix._data.GetLength(0) ||
-            _data.GetLength(1) != matrix._data.GetLength(1))
+        if (GetFirstLength() != matrix.GetFirstLength() ||
+            GetSecondLength() != matrix.GetSecondLength())
         {
             throw new InvalidOperationException("Matrices should have the same size!");
         }
     }
+    
+    private int GetFirstLength() => _data.GetLength(0);
+
+    private int GetSecondLength() => _data.GetLength(1);
 
     public override string ToString()
     {
         StringBuilder stringBuilder = new();
-        for (int i = 0; i < _data.GetLength(0); i++)
+        for (int i = 0; i < GetFirstLength(); i++)
         {
-            for (int j = 0; j < _data.GetLength(1); j++)
+            for (int j = 0; j < GetSecondLength(); j++)
             {
                 stringBuilder.Append(_data[i, j] + "\t");
             }
